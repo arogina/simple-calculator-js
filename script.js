@@ -9,16 +9,18 @@ var clickedEqual = false; // it checks if last clicked button was Equal
 
 NUMBERS.forEach(number => {
     number.addEventListener('click', () => {
-        if (resultText === "0" || clickedEqual) {
-            resultText = number.innerText;
-            result = number.innerText;
-            clickedEqual = false;
-        } else {
-            result += number.innerText;
-            resultText += number.innerText;
-        }
+        if (resultText.length <= MAX_CHAR) {
+            if (resultText === "0" || clickedEqual) {
+                resultText = number.innerText;
+                result = number.innerText;
+                clickedEqual = false;
+            } else {
+                result += number.innerText;
+                resultText += number.innerText;
+            }
 
-        RESULT.value = resultText;
+            RESULT.value = resultText;
+        }
     });
 });
 
@@ -35,37 +37,47 @@ OPERATIONS.forEach(operation => {
                 console.log(result);
                 break;
             case "×":
-                resultText += operation.innerText;
-                result += "*";
-                clickedEqual = false;
+                if (resultText.length <= MAX_CHAR) {
+                    resultText += operation.innerText;
+                    result += "*";
+                    clickedEqual = false;
+                }
                 break;
             case "÷":
-                resultText += operation.innerText;
-                result += "/";
-                clickedEqual = false;
+                if (resultText.length <= MAX_CHAR) {
+                    resultText += operation.innerText;
+                    result += "/";
+                    clickedEqual = false;
+                }
                 break;
             case "(":
-                if (resultText === "0"){
-                    resultText = operation.innerText;
-                    result = operation.innerText;
-                } else {
-                    resultText += operation.innerText;
-                    result += operation.innerText;
+                if (resultText.length <= MAX_CHAR) {
+                    if (resultText === "0"){
+                        resultText = operation.innerText;
+                        result = operation.innerText;
+                    } else {
+                        resultText += operation.innerText;
+                        result += operation.innerText;
+                    }
                 }
                 break;
             case ")": 
-                if (resultText === "0"){
-                    resultText = operation.innerText;
-                    result = operation.innerText;
-                } else {
-                    resultText += operation.innerText;
-                    result += operation.innerText;
+                if (resultText.length <= MAX_CHAR) {
+                    if (resultText === "0"){
+                        resultText = operation.innerText;
+                        result = operation.innerText;
+                    } else {
+                        resultText += operation.innerText;
+                        result += operation.innerText;
+                    }
                 }
                 break;
             default:
-                resultText += operation.innerText;
-                result += operation.innerText;
-                clickedEqual = false;
+                if (resultText.length <= MAX_CHAR) {
+                    resultText += operation.innerText;
+                    result += operation.innerText;
+                    clickedEqual = false;
+                }
                 break;
         }
 
