@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background-color: #f8f8fa;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    align-self: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 400px;
+    height: 50px;
+    background-color: #d2d4dc;
+    border-radius: 20px;
+    padding-top: 10px;
+}
+
+.title > h1 {
+    text-decoration: underline;
+}
+
+.container {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #afafaf;
+    width: 700px;
+    height: 600px;
+    border-radius: 20px;
+}
+
+.calculator {
+    display: grid;
+    margin-top: 5vh;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: repeat(6, 70px);
+    grid-gap: 15px;
+}
+
+.result {
+    grid-column: 1 / -1;
+    text-align: right;
+    padding: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #0000;
+}
+
+.result:focus {
+    outline: none;
+}
+
+.result:hover {
+    cursor: default;
+}
+
+button {
+    font-size: 1.7rem;
+    border: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.number {
+    background-color: #e5e6eb;
+}
+
+.number:hover {
+    background-color: #f8f9ff;
+}
+
+.operation {
+    background-color: #c0c2ce;
+}
+
+.operation:hover {
+    background-color: #d7d9e6;
+}
+
+#equal {
+    background-color: #ffe599;
+}
+
+#equal:hover {
+    background-color: #fae7b0;
+}
+
+
+
