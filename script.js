@@ -37,50 +37,43 @@ OPERATIONS.forEach(operation => {
                 console.log(result);
                 break;
             case "×":
-                if (resultText.length <= MAX_CHAR) {
-                    resultText += operation.innerText;
-                    result += "*";
-                    clickedEqual = false;
-                }
+                operationsText(operation.innerText);
                 break;
             case "÷":
-                if (resultText.length <= MAX_CHAR) {
-                    resultText += operation.innerText;
-                    result += "/";
-                    clickedEqual = false;
-                }
+                operationsText(operation.innerText);
                 break;
             case "(":
-                if (resultText.length <= MAX_CHAR) {
-                    if (resultText === "0"){
-                        resultText = operation.innerText;
-                        result = operation.innerText;
-                    } else {
-                        resultText += operation.innerText;
-                        result += operation.innerText;
-                    }
-                }
+                bracketsText(operation.innerText)
                 break;
             case ")": 
-                if (resultText.length <= MAX_CHAR) {
-                    if (resultText === "0"){
-                        resultText = operation.innerText;
-                        result = operation.innerText;
-                    } else {
-                        resultText += operation.innerText;
-                        result += operation.innerText;
-                    }
-                }
+                bracketsText(operation.innerText);
                 break;
             default:
-                if (resultText.length <= MAX_CHAR) {
-                    resultText += operation.innerText;
-                    result += operation.innerText;
-                    clickedEqual = false;
-                }
+                operationsText(operation.innerText);
                 break;
         }
 
         RESULT.value = resultText;
     });
 });
+
+function bracketsText (text) {
+    if (resultText.length <= MAX_CHAR) {
+        if (resultText === "0"){
+            resultText = text;
+            result = text;
+        } else {
+            resultText += text;
+            result += text;
+        }
+    }
+}
+
+function operationsText (text) {
+    if (resultText.length <= MAX_CHAR) {
+        resultText += text;
+        if (text === "×") result += "*";
+        else result += "/";
+        clickedEqual = false;
+    }
+}
