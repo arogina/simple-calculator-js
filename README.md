@@ -8,7 +8,7 @@ A simple Calculator app using HTML, CSS and JavaScript.
 
 ### About app
 
-It's a calculator with simple functionalities as addition, distraction, multiplication and division. 
+It's a calculator with simple functionalities as addition, subtraction, multiplication and division. 
 All functionalities are implemented using vanilla JavaScript, while visual component (UI) of app is made using HTML and CSS.
 
 ### Download and try it yourself!
