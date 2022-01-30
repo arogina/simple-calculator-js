@@ -29,6 +29,7 @@ OPERATIONS.forEach(operation => {
         switch (operation.innerText) {
             case "AC":
                 resultText = "0";
+                result = 0;
                 clickedEqual = false;
                 break;
             case "=":
@@ -73,7 +74,8 @@ function operationsText (text) {
     if (resultText.length <= MAX_CHAR) {
         resultText += text;
         if (text === "×") result += "*";
-        else result += "/";
+        else if (text === "÷") result += "/";
+        else result += text;
         clickedEqual = false;
     }
 }
